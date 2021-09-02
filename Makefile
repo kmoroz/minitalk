@@ -18,7 +18,7 @@ $(SERVER): $(OBJ_SERVER)
 
 $(CLIENT): $(OBJ_CLIENT)
 	@make -C $(LIBFT_DIR)
-	@gcc $(OBJ_CLIENT) -o $(CLIENT)
+	@gcc $(OBJ_CLIENT) $(LIBFT_DIR)$(LIBFT) -o $(CLIENT)
 	@echo "\e[35m$@ built 💼\e[0m\n"
 
 %.o: %.c
