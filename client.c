@@ -16,9 +16,17 @@ void	send_signal(char *str, int pid)
 	while (*str)
 	{
 		if (*str == '0')
+		{
 			kill(pid, SIGUSR1);
+			printf("%c\n", *str);
+			sleep(1);
+		}
 		if (*str == '1')
+		{
 			kill(pid, SIGUSR2);
+			printf("%c\n", *str);
+			sleep(1);
+		}
 		str++;
 	}
 }
