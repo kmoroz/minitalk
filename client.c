@@ -12,20 +12,20 @@ char	*convert_to_binary(char c)
 
 void	send_signal(char *str, int pid)
 {
-	printf("%s\n", str);
+	//printf("%s\n", str);
 	while (*str)
 	{
 		if (*str == '0')
 		{
 			kill(pid, SIGUSR1);
-			printf("%c\n", *str);
-			sleep(1);
+			//printf("%c\n", *str);
+			usleep(3000);
 		}
 		if (*str == '1')
 		{
 			kill(pid, SIGUSR2);
-			printf("%c\n", *str);
-			sleep(1);
+			//printf("%c\n", *str);
+			usleep(3000);
 		}
 		str++;
 	}
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		while (count <= argc - 1)
 		{
 			message = argv[count];
-			printf("%s\n", message);
+			//printf("%s\n", message);
 			while (*message)
 			{
 				send_signal(convert_to_binary(*message), pid);

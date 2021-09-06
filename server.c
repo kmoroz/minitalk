@@ -2,22 +2,38 @@
 #include "libft/libft.h"
 #include <signal.h>
 
+void	display_binary_to_dec(int binary)
+{
+	int	decimal;
+	int	base;
+	int	remainder;
+
+	base = 1;
+	decimal = 0;
+	remainder = 0;
+	while (binary)
+	{
+		remainder = binary % 10;
+		binary /= 10;
+		decimal += remainder * base;
+		base *= 2;
+	}
+	ft_putchar_fd(decimal, 1);
+}
+
 void	interpret(char *c)
 {
 	static char	*message;
 	char		*to_print;
 
 	if (!message)
-	{
 		message = ft_strdup(c);
-		printf("%s\n", message);
-	}
 	else
 		message = ft_strjoin(message, c);
-	if (ft_strlen(message) == 8)
+	if (ft_strlen(message) == 7)
 	{
-		to_print = ft_itoa_base(ft_atoi(message), 10, "0123456789");
-		printf("%s\n", to_print);
+		display_binary_to_dec(ft_atoi(message));
+		free(message);
 	}
 }
 
