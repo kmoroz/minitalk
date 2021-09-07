@@ -6,13 +6,18 @@ char	*convert_to_binary(char c)
 {
 	char	*result;
 
-	result = ft_itoa_base(c, 2, "012");
+	result = ft_itoa_base(c, 2, "01");
+	if (ft_strlen(result) < 7)
+		result = ft_strjoin("0", result);
 	return (result);
 }
 
 void	send_signal(char *str, int pid)
 {
+	char	*temp;
+
 	//printf("%s\n", str);
+	temp = str;
 	while (*str)
 	{
 		if (*str == '0')
@@ -29,6 +34,7 @@ void	send_signal(char *str, int pid)
 		}
 		str++;
 	}
+	free(temp);
 }
 
 int	main(int argc, char **argv)
