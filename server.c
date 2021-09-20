@@ -30,7 +30,7 @@ void	interpret(char *c)
 		message = ft_strdup(c);
 	else
 		message = ft_strjoin(message, c);
-	if (ft_strlen(message) == 7)
+	if (ft_strlen(message) == 8)
 	{
 		display_binary_to_dec(ft_atoi(message));
 		free(message);

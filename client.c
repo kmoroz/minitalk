@@ -2,13 +2,17 @@
 #include <unistd.h>
 #include <signal.h>
 
-char	*convert_to_binary(char c)
+char	*convert_to_binary(unsigned char c)
 {
 	char	*result;
 
+	c = *(unsigned char *)&c;
 	result = ft_itoa_base(c, 2, "01");
-	if (ft_strlen(result) < 7)
+	if (ft_strlen(result) == 7)
 		result = ft_strjoin("0", result);
+	if (ft_strlen(result) == 6)
+		result = ft_strjoin("00", result);
+	//("%s\n", result);
 	return (result);
 }
 
@@ -45,18 +49,14 @@ int	main(int argc, char **argv)
 
 	count = 2;
 	pid = ft_atoi(argv[1]);
-	if (argc >= 2)
+	if (argc == 3)
 	{
-		while (count <= argc - 1)
+		message = argv[2];
+		//printf("%s\n", message);
+		while (*message)
 		{
-			message = argv[count];
-			//printf("%s\n", message);
-			while (*message)
-			{
-				send_signal(convert_to_binary(*message), pid);
-				message++;
-			}
-			count++;
+			send_signal(convert_to_binary(*message), pid);
+			message++;
 		}
 	}
 }
