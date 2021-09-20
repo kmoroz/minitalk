@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   server.c                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/09/20 12:15:03 by ksmorozo      #+#    #+#                 */
+/*   Updated: 2021/09/20 14:00:12 by ksmorozo      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "libft/libft.h"
 #include <signal.h>
+#include <stdlib.h>
 
 void	display_binary_to_dec(int binary)
 {
@@ -24,7 +37,6 @@ void	display_binary_to_dec(int binary)
 void	interpret(char *c)
 {
 	static char	*message;
-	char		*to_print;
 
 	if (!message)
 		message = ft_strdup(c);
@@ -37,12 +49,12 @@ void	interpret(char *c)
 	}
 }
 
-void	handle_sigusr1(int sig)
+void	handle_sigusr1()
 {
 	interpret("0");
 }
 
-void	handle_sigusr2(int sig)
+void	handle_sigusr2()
 {
 	interpret("1");
 }
