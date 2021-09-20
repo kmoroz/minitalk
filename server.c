@@ -6,7 +6,7 @@
 /*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 12:15:03 by ksmorozo      #+#    #+#                 */
-/*   Updated: 2021/09/20 14:00:12 by ksmorozo      ########   odam.nl         */
+/*   Updated: 2021/09/20 14:53:45 by ksmorozo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	interpret(char *c)
 	}
 }
 
-void	handle_sigusr1()
+void	handle_sigusr1(void)
 {
 	interpret("0");
 }
 
-void	handle_sigusr2()
+void	handle_sigusr2(void)
 {
 	interpret("1");
 }
