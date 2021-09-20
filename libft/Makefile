@@ -6,7 +6,7 @@
 #    By: ksmorozo <ksmorozo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/10 19:37:56 by ksmorozo      #+#    #+#                  #
-#    Updated: 2021/09/20 11:49:09 by ksmorozo      ########   odam.nl          #
+#    Updated: 2021/09/20 14:09:55 by ksmorozo      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ ft_strlcpy.c ft_memcpy.c \
 ft_putnbr_fd.c
 
 HEADER_FILES = libft.h
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

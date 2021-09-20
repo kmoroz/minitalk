@@ -9,6 +9,8 @@ OBJ_CLIENT = $(SRC_CLIENT:.c=.o)
 LIBFT = libft.a
 LIBFT_DIR = libft/
 
+CFLAGS = -g -Wall -Werror -Wextra
+
 all: $(SERVER) $(CLIENT)
 
 $(LIBFT):
@@ -16,15 +18,15 @@ $(LIBFT):
 	@mv $(LIBFT_DIR)$(LIBFT) .
 
 $(SERVER): $(LIBFT) $(OBJ_SERVER)
-	@gcc $(OBJ_SERVER) $(LIBFT) -o $(SERVER)
+	@gcc $(CFLAGS) $(OBJ_SERVER) $(LIBFT) -o $(SERVER)
 	@echo "\n\033[92m $@ built 🖥️\033[0m\n"
 
 $(CLIENT): $(LIBFT) $(OBJ_CLIENT)
-	@gcc $(OBJ_CLIENT) $(LIBFT) -o $(CLIENT)
+	@gcc $(CFLAGS) $(OBJ_CLIENT) $(LIBFT) -o $(CLIENT)
 	@echo "\n\033[92m $@ built 💼\033[0m\n"
 
 %.o: %.c
-	@gcc -c $< -o $@
+	@gcc $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ_CLIENT) $(OBJ_SERVER)
