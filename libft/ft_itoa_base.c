@@ -58,8 +58,3 @@ char	*ft_itoa_base(long long int number, int base, char *digits_str)
 	conversion[num_length] = '\0';
 	return (handle_conversion(number, conversion, base, digits_str));
 }
-
-// int	main()
-// {
-// 	char *result = ft_itoa_base('🍓', 2, "01");
-// }
