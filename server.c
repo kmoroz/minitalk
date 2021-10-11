@@ -6,7 +6,7 @@
 /*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 12:15:03 by ksmorozo      #+#    #+#                 */
-/*   Updated: 2021/09/20 14:53:45 by ksmorozo      ########   odam.nl         */
+/*   Updated: 2021/10/11 16:51:30 by ksmorozo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,31 @@ void	display_binary_to_dec(int binary)
 	ft_putchar_fd(decimal, 1);
 }
 
-void	interpret(char *c)
+void	interpret(char c)
 {
-	static char	*message;
+	static char	message[8];
+	static int	i;
 
 	if (!message)
-		message = ft_strdup(c);
-	else
-		message = ft_strjoin(message, c);
-	if (ft_strlen(message) == 8)
+		ft_bzero(message, 8);
+	message[i] = c;
+	i++;
+	if (i == 8)
 	{
 		display_binary_to_dec(ft_atoi(message));
-		free(message);
+		i = 0;
+		ft_bzero(message, 8);
 	}
 }
 
 void	handle_sigusr1(void)
 {
-	interpret("0");
+	interpret('0');
 }
 
 void	handle_sigusr2(void)
 {
-	interpret("1");
+	interpret('1');
 }
 
 int	main(void)
