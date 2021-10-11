@@ -6,7 +6,7 @@
 #    By: ksmorozo <ksmorozo@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/10 19:37:56 by ksmorozo      #+#    #+#                  #
-#    Updated: 2021/09/20 14:09:55 by ksmorozo      ########   odam.nl          #
+#    Updated: 2021/10/11 16:57:21 by ksmorozo      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRC = ft_atoi.c ft_itoa_base.c \
 ft_putchar_fd.c ft_strdup.c \
 ft_strjoin.c ft_strlen.c \
 ft_strlcpy.c ft_memcpy.c \
-ft_putnbr_fd.c
+ft_putnbr_fd.c \
+ft_bzero.c
 
 HEADER_FILES = libft.h
 CFLAGS = -Wall -Wextra -Werror -g

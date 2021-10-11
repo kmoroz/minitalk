@@ -6,7 +6,7 @@
 /*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 11:43:49 by ksmorozo      #+#    #+#                 */
-/*   Updated: 2021/09/20 11:41:44 by ksmorozo      ########   odam.nl         */
+/*   Updated: 2021/10/11 16:57:27 by ksmorozo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ char			*ft_itoa_base(long long int number, int base, char *digits_str);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_bzero(void *s, size_t n);
 
 #endif
