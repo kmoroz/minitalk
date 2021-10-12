@@ -6,7 +6,7 @@
 /*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 12:15:03 by ksmorozo      #+#    #+#                 */
-/*   Updated: 2021/10/11 16:51:30 by ksmorozo      ########   odam.nl         */
+/*   Updated: 2021/10/12 18:17:17 by ksmorozo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	interpret(char c)
 	static char	message[8];
 	static int	i;
 
-	if (!message)
-		ft_bzero(message, 8);
 	message[i] = c;
 	i++;
 	if (i == 8)
@@ -51,14 +49,16 @@ void	interpret(char c)
 	}
 }
 
-void	handle_sigusr1(void)
+void	handle_sigusr1(int i)
 {
-	interpret('0');
+	if (i == SIGUSR1)
+		interpret('0');
 }
 
-void	handle_sigusr2(void)
+void	handle_sigusr2(int i)
 {
-	interpret('1');
+	if (i == SIGUSR2)
+		interpret('1');
 }
 
 int	main(void)
