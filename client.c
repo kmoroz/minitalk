@@ -6,7 +6,7 @@
 /*   By: ksmorozo <ksmorozo@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/20 12:14:31 by ksmorozo      #+#    #+#                 */
-/*   Updated: 2021/09/20 14:48:31 by ksmorozo      ########   odam.nl         */
+/*   Updated: 2021/10/13 09:47:54 by ksmorozo      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	send_signal(char *str, int pid)
 		if (*str == '0')
 		{
 			kill(pid, SIGUSR1);
-			usleep(3000);
+			usleep(300);
 		}
 		if (*str == '1')
 		{
 			kill(pid, SIGUSR2);
-			usleep(3000);
+			usleep(300);
 		}
 		str++;
 	}
